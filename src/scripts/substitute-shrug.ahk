@@ -1,4 +1,4 @@
-; replace ::shrug: with ¯\_(ツ)_/¯
+﻿; replace ::shrug: with ¯\_(ツ)_/¯
 
 :B0:`::shrug::
 	if (A_EndChar == ":") {

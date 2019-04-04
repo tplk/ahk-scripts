@@ -1,4 +1,4 @@
-; media/function keys mapped to right alt + fn
+﻿; media/function keys mapped to right alt + fn
 
 >!F7::SendInput {Media_Prev}
 >!F8::SendInput {Media_Play_Pause}
