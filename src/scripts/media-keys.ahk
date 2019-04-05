@@ -1,5 +1,7 @@
 ﻿; media/function keys mapped to right alt + fn
 
+#SingleInstance Force
+
 >!F7::SendInput {Media_Prev}
 >!F8::SendInput {Media_Play_Pause}
 >!F9::SendInput {Media_Next}
