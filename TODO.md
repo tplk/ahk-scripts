@@ -1,0 +1,1 @@
+- Implement .ahkignore to disable scripts
