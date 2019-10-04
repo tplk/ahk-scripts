@@ -1,0 +1,26 @@
+#SingleInstance Force
+#Include %A_LineFile%\..\..\helpers\win_http_request.ahk
+#Include %A_LineFile%\..\..\helpers\json.ahk
+#Include %A_LineFile%\..\..\helpers\custom_tray_tip.ahk
+
+TYPOGRAF_API_ENDPOINT = https://typograf.now.sh/api/process
+
+!F5::
+{
+  EncodedClipboard := JSON.Stringify(clipboard)
+  Body = {"text":%EncodedClipboard%}
+
+  ShowTrayTip("Typograf", "Formatting clipboard contents...")
+
+  r := WinHttpRequest(TYPOGRAF_API_ENDPOINT, InOutData := Body, InOutHeaders := "Content-Type: application/json")
+
+  if (r = -1) {
+    clipboard := InOutData
+    HideTrayTip()
+    ShowTrayTip("Typograf", "Clipboard formatted")
+  } else {
+    MsgBox, % (r = 0) ? "Typograf: Timeout" : "Typograf: No response"
+  }
+  Return
+}
+
